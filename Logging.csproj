@@ -7,8 +7,8 @@
     <ProjectGuid>{F3700228-19FB-4063-A38F-5E02CEA4BB54}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CreateAR.Commons.UnityLog</RootNamespace>
-    <AssemblyName>CreateAR.Commons.UnityLog</AssemblyName>
+    <RootNamespace>CreateAR.Commons.Unity.Logging</RootNamespace>
+    <AssemblyName>CreateAR.Commons.Unity.Logging</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

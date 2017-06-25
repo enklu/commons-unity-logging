@@ -1,4 +1,4 @@
-﻿namespace CreateAR.Commons.UnityLog
+﻿namespace CreateAR.Commons.Unity.Logging
 {
     /// <summary>
     /// Terse logging interface for a Unity client.

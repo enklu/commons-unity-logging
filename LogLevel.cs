@@ -1,4 +1,4 @@
-﻿namespace CreateAR.Commons.UnityLog
+﻿namespace CreateAR.Commons.Unity.Logging
 {
     /// <summary>
     /// Defines potential logging levels.
