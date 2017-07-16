@@ -1,0 +1,4 @@
+task build(type:Exec) {
+	executable 'xbuild'
+	args 'Logging.csproj'
+}
