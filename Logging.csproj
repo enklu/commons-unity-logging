@@ -7,7 +7,7 @@
     <ProjectGuid>{4A3738E5-7B9B-418F-BEA0-0DD28550FD54}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>CreateAR.Commons.Unity.Logging</RootNamespace>
-    <AssemblyName>Logging-CreateAR.Commons.Unity.Logging</AssemblyName>
+    <AssemblyName>CreateAR.Commons.Unity.Logging</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -32,11 +32,12 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DefaultLogFormatter.cs" />
-    <Compile Include="FileLogTarget.cs" />
-    <Compile Include="ILogFormatter.cs" />
-    <Compile Include="Log.cs" />
-    <Compile Include="LogLevel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\DefaultLogFormatter.cs" />
+    <Compile Include="Src\FileLogTarget.cs" />
+    <Compile Include="Src\ILogFormatter.cs" />
+    <Compile Include="Src\Log.cs" />
+    <Compile Include="Src\LogLevel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
