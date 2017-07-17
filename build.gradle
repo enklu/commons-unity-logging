@@ -1,4 +1,13 @@
+// default to building with msbuild
+def csc = System.getenv("CSC") ?: cscPath
+def csproj = 'Logging.csproj'
+
+task clean(type:Exec) {
+	executable csc
+	args csproj, '/target:Clean'
+}
+
 task build(type:Exec) {
-	executable 'xbuild'
-	args 'Logging.csproj'
+	executable csc
+	args csproj, '/target:Clean;Compile'
 }
