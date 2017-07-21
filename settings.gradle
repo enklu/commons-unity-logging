@@ -1,0 +1,2 @@
+include 'CreateAR.Commons.Unity.Logging'
+include 'CreateAR.Commons.Unity.Logging.Test'

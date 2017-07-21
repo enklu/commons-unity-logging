@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+    <AssemblyName>CreateAR.Commons.Unity.Logging</AssemblyName>
+    <RootNamespace>CreateAR.Commons.Unity.Logging</RootNamespace>
+    <AssemblyVersion>0.1.0</AssemblyVersion>
+    <Version>0.1.0</Version>
+    <Description>Logging for Unity.</Description>
+    <Copyright>Copyright © 2017 CreateAR</Copyright>
+    <Authors>CreateAR</Authors>
+    <IncludeSymbols>True</IncludeSymbols>
+  </PropertyGroup>
+</Project>
