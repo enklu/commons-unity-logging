@@ -1,10 +1,17 @@
-﻿namespace CreateAR.Commons.Unity.Logging
+﻿using System.Collections.Generic;
+
+namespace CreateAR.Commons.Unity.Logging
 {
     /// <summary>
     /// Terse logging interface for a Unity client.
     /// </summary>
-    public class Log
+    public static class Log
     {
+        /// <summary>
+        /// List of targets.
+        /// </summary>
+        private static readonly List<ILogTarget> _targets = new List<ILogTarget>();
+
         /// <summary>
         /// Defines a delegate for receiving an event.
         /// </summary>
@@ -12,11 +19,27 @@
         /// <param name="caller">The object that sent the log.</param>
         /// <param name="message">The message to send.</param>
         public delegate void LogEvent(LogLevel level, object caller, string message);
+        
+        /// <summary>
+        /// Adds an ILogTarget implementation.
+        /// </summary>
+        /// <param name="target">The target to add.</param>
+        public static void AddLogTarget(ILogTarget target)
+        {
+            if (!_targets.Contains(target))
+            {
+                _targets.Add(target);
+            }
+        }
 
         /// <summary>
-        /// Called when log has been sent.
+        /// Removes an ILogTarget implementation.
         /// </summary>
-        public static event LogEvent OnLog;
+        /// <param name="target">The target to add.</param>
+        public static void RemoveLogTarget(ILogTarget target)
+        {
+            _targets.Remove(target);
+        }
 
         /// <summary>
         /// Filters all logs below value. Eg:
@@ -26,32 +49,6 @@
         /// This will filter out Info and Debug level logs.
         /// </summary>
         public static LogLevel Filter = LogLevel.Debug;
-
-        /// <summary>
-        /// Logs a message at a specific level.
-        /// </summary>
-        /// <param name="level"></param>
-        /// <param name="caller"></param>
-        /// <param name="message"></param>
-        /// <param name="replacements"></param>
-        public static void Out(
-            LogLevel level,
-            object caller,
-            object message,
-            params object[] replacements)
-        {
-            if (level < Filter)
-            {
-                return;
-            }
-
-            if (replacements.Length > 0)
-            {
-                message = string.Format(message.ToString(), replacements);
-            }
-
-            OnLog?.Invoke(level, caller, message.ToString());
-        }
         
         /// <summary>
         /// Logs a debug level message.
@@ -126,6 +123,36 @@
                 caller,
                 message,
                 replacements);
+        }
+
+        /// <summary>
+        /// Logs a message at a specific level.
+        /// </summary>
+        /// <param name="level">The LogLevel at which this log should be output.</param>
+        /// <param name="caller">The calling object or null.</param>
+        /// <param name="message">The object to log.</param>
+        /// <param name="replacements">String replacements.</param>
+        private static void Out(
+            LogLevel level,
+            object caller,
+            object message,
+            params object[] replacements)
+        {
+            if (level < Filter)
+            {
+                return;
+            }
+
+            if (replacements.Length > 0)
+            {
+                message = string.Format(message.ToString(), replacements);
+            }
+
+            // call all ILogTargets
+            for (int i = 0, len = _targets.Count; i < len; i++)
+            {
+                _targets[i].OnLog(level, caller, message.ToString());
+            }
         }
     }
 }

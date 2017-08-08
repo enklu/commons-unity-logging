@@ -6,7 +6,7 @@ namespace CreateAR.Commons.Unity.Logging
     /// <summary>
     /// Forwards logs to a file.
     /// </summary>
-    public class FileLogTarget : IDisposable
+    public class FileLogTarget : IDisposable, ILogTarget
     {
         /// <summary>
         /// Formats logs.

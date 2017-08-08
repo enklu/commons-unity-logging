@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net452</TargetFramework>
@@ -11,4 +11,7 @@
     <Authors>CreateAR</Authors>
     <IncludeSymbols>True</IncludeSymbols>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="UnityEngine" Version="2017.1.0.3" />
+  </ItemGroup>
 </Project>

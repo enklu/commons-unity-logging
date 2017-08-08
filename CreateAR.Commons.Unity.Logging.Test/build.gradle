@@ -17,13 +17,3 @@ task build(type:Exec, dependsOn:restore) {
         executable csc
         args csproj, '/target:Clean;Rebuild'
 }
-
-task pack(type:Exec, dependsOn: build) {
-        executable csc
-        args '/t:pack', csproj
-}
-
-task upload(type:Exec, dependsOn:pack) {
-        executable 'nuget'
-        args 'push', '-Source', 'Nexus', nupkg
-}
