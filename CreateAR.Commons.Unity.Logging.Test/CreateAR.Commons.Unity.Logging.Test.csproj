@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net452</TargetFramework>
+    <TargetFramework>net35</TargetFramework>
     <AssemblyName>CreateAR.Commons.Unity.Logging.Test</AssemblyName>
     <RootNamespace>CreateAR.Commons.Unity.Logging.Test</RootNamespace>
 	<AssemblyVersion>0.1.0</AssemblyVersion>
