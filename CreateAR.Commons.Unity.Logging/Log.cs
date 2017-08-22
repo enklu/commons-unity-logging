@@ -137,7 +137,7 @@ namespace CreateAR.Commons.Unity.Logging
         /// <param name="caller">The calling object or null.</param>
         /// <param name="message">The object to log.</param>
         /// <param name="replacements">String replacements.</param>
-        private static void Out(
+        public static void Out(
             LogLevel level,
             object caller,
             object message,
