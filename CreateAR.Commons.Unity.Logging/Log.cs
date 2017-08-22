@@ -11,15 +11,7 @@ namespace CreateAR.Commons.Unity.Logging
         /// List of targets.
         /// </summary>
         private static readonly List<ILogTarget> _targets = new List<ILogTarget>();
-
-        /// <summary>
-        /// Defines a delegate for receiving an event.
-        /// </summary>
-        /// <param name="level">The level of the log.</param>
-        /// <param name="caller">The object that sent the log.</param>
-        /// <param name="message">The message to send.</param>
-        public delegate void LogEvent(LogLevel level, object caller, string message);
-
+        
         /// <summary>
         /// All log targets.
         /// </summary>
