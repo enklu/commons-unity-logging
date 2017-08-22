@@ -19,7 +19,12 @@ namespace CreateAR.Commons.Unity.Logging
         /// <param name="caller">The object that sent the log.</param>
         /// <param name="message">The message to send.</param>
         public delegate void LogEvent(LogLevel level, object caller, string message);
-        
+
+        /// <summary>
+        /// All log targets.
+        /// </summary>
+        public static ILogTarget[] Targets => _targets.ToArray();
+
         /// <summary>
         /// Adds an ILogTarget implementation.
         /// </summary>
@@ -40,7 +45,7 @@ namespace CreateAR.Commons.Unity.Logging
         {
             _targets.Remove(target);
         }
-
+        
         /// <summary>
         /// Filters all logs below value. Eg:
         /// 
