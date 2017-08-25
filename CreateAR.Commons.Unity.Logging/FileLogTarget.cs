@@ -28,7 +28,8 @@ namespace CreateAR.Commons.Unity.Logging
             _formatter = formatter;
             
             var directoryName = Path.GetDirectoryName(filePath);
-            if (null != directoryName && !Directory.Exists(directoryName))
+            if (!string.IsNullOrEmpty(directoryName)
+                && !Directory.Exists(directoryName))
             {
                 Directory.CreateDirectory(directoryName);
             }
