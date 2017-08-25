@@ -38,7 +38,7 @@ namespace CreateAR.Commons.Unity.Logging
 
             _writer.AutoFlush = true;
             _writer.WriteLine(
-                "Created at on {0:DD:MM:YYYY} at {0:HH:mm:ss.fff}.\n",
+                "Created on {0:dd:MM:yyyy} at {0:HH:mm:ss.fff}.\n",
                 DateTime.Now);
         }
 
@@ -50,7 +50,7 @@ namespace CreateAR.Commons.Unity.Logging
         /// <param name="message"></param>
         public void OnLog(LogLevel level, object caller, string message)
         {
-            _writer?.WriteLine(_formatter.Format(level, caller, message));
+            _writer?.Write(_formatter.Format(level, caller, message));
         }
 
         /// <summary>
