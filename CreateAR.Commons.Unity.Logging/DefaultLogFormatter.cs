@@ -54,7 +54,12 @@ namespace CreateAR.Commons.Unity.Logging
                 log.AppendFormat("[{0}]", level);
             }
 
-            log.AppendFormat("\t{0}\n", message);
+            if (Level || Timestamp)
+            {
+                log.Append("\t");
+            }
+
+            log.AppendFormat("{0}\n", message);
 
             return log.ToString();
         }

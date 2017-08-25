@@ -93,13 +93,11 @@ namespace CreateAR.Commons.Unity.Logging.Test
             _target.Called = false;
 
             Log.Info(this, LogLevel.Info.ToString());
-
+            
             Assert.IsTrue(_target.Called);
             Assert.AreEqual(LogLevel.Info, _target.Level);
             Assert.AreEqual(LogLevel.Info.ToString(), _target.Message);
             Assert.AreEqual(this, _target.Caller);
-            _target.Caller = null;
-            _target.Called = false;
         }
 
         [Test]
