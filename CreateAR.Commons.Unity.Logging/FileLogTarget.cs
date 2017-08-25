@@ -35,6 +35,8 @@ namespace CreateAR.Commons.Unity.Logging
             }
             
             _writer = File.CreateText(filePath);
+
+            _writer.AutoFlush = true;
             _writer.WriteLine(
                 "Created at on {0:DD:MM:YYYY} at {0:HH:mm:ss.fff}.\n",
                 DateTime.Now);
