@@ -1,19 +1,21 @@
-def csc = System.getenv("CSC") ?: cscPath
-def projName = 'CreateAR.Commons.Unity.Logging'
-def csproj = "${projName}.Test.csproj"
-def nupkg = "bin/Debug/${projName}.Test.nupkg"
+def projName = 'CreateAR.Commons.Unity.Logging.Test'
+def csproj = "${projName}.csproj"
 
-task clean(type:Exec) {
-        executable csc
-        args csproj, '/target:Clean'
+task clean(type:Delete) {
+    delete 'bin'
 }
 
 task restore(type:Exec) {
-        executable 'nuget'
-        args 'restore', csproj
+    executable nugetAbsPath
+    args 'restore', csproj
 }
 
-task build(type:Exec, dependsOn:restore) {
-        executable csc
-        args csproj, '/target:Clean;Rebuild'
+task build(type:Exec, dependsOn:['restore']) {
+    executable cscPath
+    args csproj, '/target:Rebuild'
+}
+
+task test(type:Exec, dependsOn: build) {
+    executable nunitConsolePath
+	args "bin/Debug/net35/${projName}.dll", "--inprocess"
 }
