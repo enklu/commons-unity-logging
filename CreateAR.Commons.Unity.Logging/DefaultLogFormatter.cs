@@ -14,7 +14,7 @@ namespace CreateAR.Commons.Unity.Logging
         public bool Timestamp { get; set; }
 
         /// <summary>
-        /// Specifies the timestamp format to lof.
+        /// Specifies the timestamp format to log.
         /// </summary>
         public string TimestampFormat { get; set; }
 
@@ -24,6 +24,11 @@ namespace CreateAR.Commons.Unity.Logging
         public bool Level { get; set; }
 
         /// <summary>
+        /// If true, prepends the type name of the sender. This defaults to false.
+        /// </summary>
+        public bool TypeName { get; set; }
+
+        /// <summary>
         /// Creates a new DefaultLogFormatter.
         /// </summary>
         public DefaultLogFormatter()
@@ -31,6 +36,7 @@ namespace CreateAR.Commons.Unity.Logging
             Timestamp = true;
             Level = true;
             TimestampFormat = "HH:mm:ss.fff";
+            TypeName = true;
         }
 
         /// <summary>
@@ -54,7 +60,12 @@ namespace CreateAR.Commons.Unity.Logging
                 log.AppendFormat("[{0}]", level);
             }
 
-            if (Level || Timestamp)
+            if (TypeName)
+            {
+                log.AppendFormat("[{0}]", caller.GetType().FullName);
+            }
+
+            if (Level || Timestamp || TypeName)
             {
                 log.Append("\t");
             }

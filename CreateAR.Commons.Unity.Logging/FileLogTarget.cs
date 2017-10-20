@@ -31,11 +31,31 @@ namespace CreateAR.Commons.Unity.Logging
             if (!string.IsNullOrEmpty(directoryName)
                 && !Directory.Exists(directoryName))
             {
-                Directory.CreateDirectory(directoryName);
+                try
+                {
+                    Directory.CreateDirectory(directoryName);
+                }
+                catch (Exception exception)
+                {
+                    Log.Error(this,
+                        "Could not create FileLogTarget directory : {0}.",
+                        exception);
+
+                    return;
+                }
+            }
+
+            try
+            {
+                _writer = File.CreateText(filePath);
+            }
+            catch (Exception exception)
+            {
+                Log.Error(this,
+                    "Could not create FileLogTarget file : {0}.",
+                    exception);
             }
             
-            _writer = File.CreateText(filePath);
-
             _writer.AutoFlush = true;
             _writer.WriteLine(
                 "Created on {0:dd:MM:yyyy} at {0:HH:mm:ss.fff}.\n",
