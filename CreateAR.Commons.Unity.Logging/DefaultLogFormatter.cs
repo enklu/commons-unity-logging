@@ -60,7 +60,7 @@ namespace CreateAR.Commons.Unity.Logging
                 log.AppendFormat("[{0}]", level);
             }
 
-            if (TypeName)
+            if (TypeName && null != caller)
             {
                 log.AppendFormat("[{0}]", caller.GetType().FullName);
             }
