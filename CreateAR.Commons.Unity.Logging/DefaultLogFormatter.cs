@@ -24,9 +24,14 @@ namespace CreateAR.Commons.Unity.Logging
         public bool Level { get; set; }
 
         /// <summary>
-        /// If true, prepends the type name of the sender. This defaults to false.
+        /// If true, prepends the type name of the sender. This defaults to true.
         /// </summary>
         public bool TypeName { get; set; }
+
+        /// <summary>
+        /// If true, prepends a ToString of the sender. This defaults to false.
+        /// </summary>
+        public bool ObjectToString { get; set; }
 
         /// <summary>
         /// Creates a new DefaultLogFormatter.
@@ -63,6 +68,11 @@ namespace CreateAR.Commons.Unity.Logging
             if (TypeName && null != caller)
             {
                 log.AppendFormat("[{0}]", caller.GetType().FullName);
+            }
+
+            if (ObjectToString && null != caller)
+            {
+                log.AppendFormat("[{0}]", caller);
             }
 
             if (Level || Timestamp || TypeName)
