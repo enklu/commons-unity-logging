@@ -22,7 +22,7 @@ Log.Fatal(this, "This is a fatal log.");
 
 The `Log` class features a level filter which can be used to globally set the log level:
 
-```
+```csharp
 Log.Level = LogLevel.Error;
 ```
 
@@ -34,7 +34,7 @@ The `ILogTarget` interface is where the meat of the logging system resides. This
 
 These targets may be added and removed from the `Log` class:
 
-```
+```csharp
 Log.AddLogTarget(new DiagnosticsLogTarget(formatter));
 
 ```
