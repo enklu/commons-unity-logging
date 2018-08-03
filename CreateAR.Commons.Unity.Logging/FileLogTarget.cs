@@ -70,7 +70,14 @@ namespace CreateAR.Commons.Unity.Logging
         /// <param name="message"></param>
         public void OnLog(LogLevel level, object caller, string message)
         {
-            _writer?.Write(_formatter.Format(level, caller, message));
+            try
+            {
+                _writer?.Write(_formatter.Format(level, caller, message));
+            }
+            catch
+            {
+                //
+            }
         }
 
         /// <summary>
