@@ -12,6 +12,9 @@ namespace CreateAR.Commons.Unity.Logging
         /// </summary>
         private readonly ILogFormatter _formatter;
 
+        /// <inheritdoc />
+        public LogLevel Filter { get; set; }
+
         /// <summary>
         /// Creates a new log target.
         /// </summary>
@@ -24,6 +27,11 @@ namespace CreateAR.Commons.Unity.Logging
         /// <inheritdoc cref="ILogTarget"/>
         public void OnLog(LogLevel level, object caller, string message)
         {
+            if (level < Filter)
+            {
+                return;
+            }
+
             Debug.WriteLine(_formatter.Format(
                 level,
                 caller,

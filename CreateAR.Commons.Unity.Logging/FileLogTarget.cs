@@ -18,6 +18,9 @@ namespace CreateAR.Commons.Unity.Logging
         /// </summary>
         private readonly StreamWriter _writer;
 
+        /// <inheritdoc />
+        public LogLevel Filter { get; set; }
+
         /// <summary>
         /// Creates a new FileLogTarget.
         /// </summary>
@@ -70,6 +73,11 @@ namespace CreateAR.Commons.Unity.Logging
         /// <param name="message"></param>
         public void OnLog(LogLevel level, object caller, string message)
         {
+            if (level < Filter)
+            {
+                return;
+            }
+
             try
             {
                 _writer?.Write(_formatter.Format(level, caller, message));

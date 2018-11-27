@@ -13,6 +13,8 @@ namespace CreateAR.Commons.Unity.Logging.Test
             public object Caller;
             public string Message;
 
+            public LogLevel Filter { get; set; }
+
             public void OnLog(LogLevel level, object caller, string message)
             {
                 Called = true;
@@ -50,16 +52,6 @@ namespace CreateAR.Commons.Unity.Logging.Test
             Log.RemoveLogTarget(_target);
 
             Assert.AreEqual(0, Log.Targets.Length);
-        }
-
-        [Test]
-        public void Filter()
-        {
-            Log.AddLogTarget(_target);
-            Log.Filter = LogLevel.Error;
-            Log.Debug(this, "Test");
-
-            Assert.IsFalse(_target.Called);
         }
     }
 }

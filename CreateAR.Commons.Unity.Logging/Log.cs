@@ -39,15 +39,6 @@ namespace CreateAR.Commons.Unity.Logging
         }
         
         /// <summary>
-        /// Filters all logs below value. Eg:
-        /// 
-        /// Filter = LogLevel.Warning;
-        /// 
-        /// This will filter out Info and Debug level logs.
-        /// </summary>
-        public static LogLevel Filter = LogLevel.Debug;
-        
-        /// <summary>
         /// Logs a debug level message.
         /// </summary>
         /// <param name="caller">The calling object or null.</param>
@@ -135,11 +126,6 @@ namespace CreateAR.Commons.Unity.Logging
             object message,
             params object[] replacements)
         {
-            if (level < Filter)
-            {
-                return;
-            }
-
             if (replacements.Length > 0)
             {
                 message = string.Format(message.ToString(), replacements);
