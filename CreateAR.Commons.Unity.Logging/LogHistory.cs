@@ -92,7 +92,11 @@ namespace CreateAR.Commons.Unity.Logging
         /// <inheritdoc />
         public void OnLog(LogLevel level, object caller, string message)
         {
-            // keep all logs
+            if (level < Filter)
+            {
+                return;
+            }
+
             var record = _logs[Interlocked.Increment(ref _index) % _size];
             record.Level = level;
             record.FormattedLog = _formatter.Format(level, caller, message);
@@ -100,6 +104,14 @@ namespace CreateAR.Commons.Unity.Logging
 
         /// <inheritdoc />
         public string GenerateDump(LogDumpOptions options = LogDumpOptions.None)
+        {
+            return GenerateDump(Filter, options);
+        }
+
+        /// <inheritdoc />
+        public string GenerateDump(
+            LogLevel filter,
+            LogDumpOptions options = LogDumpOptions.None)
         {
             // trivial case: no logs yet
             if (0 == _index)
@@ -114,8 +126,8 @@ namespace CreateAR.Commons.Unity.Logging
                 var index = i % _size;
                 var record = _logs[index];
 
-                // filter here
-                if (record.Level < Filter)
+                // filter
+                if (record.Level < filter)
                 {
                     continue;
                 }

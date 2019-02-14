@@ -28,11 +28,18 @@ namespace CreateAR.Commons.Unity.Logging
         int Size { get; set; }
 
         /// <summary>
-        /// Generates a dump of logs.
+        /// Generates a log dump from all logs in history.
         /// </summary>
-        /// <param name="length"></param>
-        /// <param name="formatter"></param>
-        /// <returns></returns>
+        /// <param name="options">Any additional options.</param>
+        /// <returns>The concatenated log dump.</returns>
         string GenerateDump(LogDumpOptions options = LogDumpOptions.None);
+
+        /// <summary>
+        /// Generates a log dump from all logs in history.
+        /// </summary>
+        /// <param name="filter">The filter to apply.</param>
+        /// <param name="options">Any additional options.</param>
+        /// <returns>The concatenated log dump.</returns>
+        string GenerateDump(LogLevel filter, LogDumpOptions options = LogDumpOptions.None);
     }
 }
