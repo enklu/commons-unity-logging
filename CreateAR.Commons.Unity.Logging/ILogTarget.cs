@@ -9,7 +9,7 @@ namespace CreateAR.Commons.Unity.Logging
         /// Only logs with a level greater to or equal to this level will be respected.
         /// </summary>
         LogLevel Filter { get; set; }
-
+        
         /// <summary>
         /// When called, logs to the file.
         /// </summary>
