@@ -30,6 +30,7 @@ namespace CreateAR.Commons.Unity.Logging
         {
             _formatter = formatter;
             
+            // make sure directory exists
             var directoryName = Path.GetDirectoryName(filePath);
             if (!string.IsNullOrEmpty(directoryName)
                 && !Directory.Exists(directoryName))
@@ -48,6 +49,18 @@ namespace CreateAR.Commons.Unity.Logging
                 }
             }
 
+            // copy previous one
+            if (File.Exists(filePath))
+            {
+                var fileName = Path.GetFileNameWithoutExtension(filePath);
+                var extension = Path.GetExtension(filePath);
+                var copyPath = Path.Combine(
+                    directoryName,
+                    string.Format("{0}.previous{1}", fileName, extension));
+                File.Copy(filePath, copyPath, true);
+            }
+
+            // create new one
             try
             {
                 _writer = File.CreateText(filePath);

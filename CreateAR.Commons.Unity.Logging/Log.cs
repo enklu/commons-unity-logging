@@ -13,9 +13,25 @@ namespace CreateAR.Commons.Unity.Logging
         private static readonly List<ILogTarget> _targets = new List<ILogTarget>();
         
         /// <summary>
+        /// Log history.
+        /// </summary>
+        private static readonly LogHistory _history = new LogHistory(new DefaultLogFormatter
+        {
+            Level = true,
+            Timestamp = true,
+            ObjectToString = true,
+            TypeName = true
+        });
+
+        /// <summary>
         /// All log targets.
         /// </summary>
         public static ILogTarget[] Targets => _targets.ToArray();
+
+        /// <summary>
+        /// History.
+        /// </summary>
+        public static ILogHistory History => _history;
 
         /// <summary>
         /// Adds an ILogTarget implementation.
@@ -126,10 +142,14 @@ namespace CreateAR.Commons.Unity.Logging
             object message,
             params object[] replacements)
         {
+            // TODO: only do this if there is a target active at this level
             if (replacements.Length > 0)
             {
                 message = string.Format(message.ToString(), replacements);
             }
+
+            // history
+            _history.OnLog(level, caller, message.ToString());
 
             // call all ILogTargets
             for (int i = 0, len = _targets.Count; i < len; i++)
