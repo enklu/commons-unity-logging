@@ -15,7 +15,7 @@ namespace CreateAR.Commons.Unity.Logging.Test
 
             public LogLevel Filter { get; set; }
 
-            public void OnLog(LogLevel level, object caller, string message)
+            public void OnLog(LogLevel level, object caller, string message, object meta)
             {
                 Called = true;
 

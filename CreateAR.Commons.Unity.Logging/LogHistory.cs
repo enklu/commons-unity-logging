@@ -90,7 +90,7 @@ namespace CreateAR.Commons.Unity.Logging
         }
 
         /// <inheritdoc />
-        public void OnLog(LogLevel level, object caller, string message)
+        public void OnLog(LogLevel level, object caller, string message, object meta)
         {
             if (level < Filter)
             {

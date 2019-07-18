@@ -84,7 +84,7 @@ namespace CreateAR.Commons.Unity.Logging
         /// <param name="level"></param>
         /// <param name="caller"></param>
         /// <param name="message"></param>
-        public void OnLog(LogLevel level, object caller, string message)
+        public void OnLog(LogLevel level, object caller, string message, object meta)
         {
             if (level < Filter)
             {
