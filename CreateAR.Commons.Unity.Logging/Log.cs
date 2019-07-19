@@ -66,6 +66,7 @@ namespace CreateAR.Commons.Unity.Logging
                 LogLevel.Debug,
                 caller,
                 message,
+                null,
                 replacements);
         }
 
@@ -81,6 +82,7 @@ namespace CreateAR.Commons.Unity.Logging
                 LogLevel.Info,
                 caller,
                 message,
+                null,
                 replacements);
         }
 
@@ -96,6 +98,7 @@ namespace CreateAR.Commons.Unity.Logging
                 LogLevel.Warning,
                 caller,
                 message,
+                null,
                 replacements);
         }
 
@@ -111,6 +114,7 @@ namespace CreateAR.Commons.Unity.Logging
                 LogLevel.Error,
                 caller,
                 message,
+                null,
                 replacements);
         }
 
@@ -126,6 +130,7 @@ namespace CreateAR.Commons.Unity.Logging
                 LogLevel.Fatal,
                 caller,
                 message,
+                null,
                 replacements);
         }
 
@@ -140,6 +145,7 @@ namespace CreateAR.Commons.Unity.Logging
             LogLevel level,
             object caller,
             object message,
+            object meta,
             params object[] replacements)
         {
             // TODO: only do this if there is a target active at this level
@@ -149,12 +155,12 @@ namespace CreateAR.Commons.Unity.Logging
             }
 
             // history
-            _history.OnLog(level, caller, message.ToString());
+            _history.OnLog(level, caller, message.ToString(), meta);
 
             // call all ILogTargets
             for (int i = 0, len = _targets.Count; i < len; i++)
             {
-                _targets[i].OnLog(level, caller, message.ToString());
+                _targets[i].OnLog(level, caller, message.ToString(), meta);
             }
         }
     }
