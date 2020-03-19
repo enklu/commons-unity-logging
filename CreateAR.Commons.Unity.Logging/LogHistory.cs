@@ -121,7 +121,7 @@ namespace CreateAR.Commons.Unity.Logging
 
             var builder = new StringBuilder();
 
-            for (var i = Math.Max(0, _index - 1); i >= Math.Max(0, _index - _size + 1); i--)
+            for (var i = Math.Max(0, _index); i >= Math.Max(0, _index - _size); i--)
             {
                 var index = i % _size;
                 var record = _logs[index];
