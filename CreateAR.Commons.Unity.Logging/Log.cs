@@ -19,7 +19,7 @@ namespace CreateAR.Commons.Unity.Logging
         {
             Level = true,
             Timestamp = true,
-            ObjectToString = true,
+            ObjectToString = false,
             TypeName = true
         });
 
