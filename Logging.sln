@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateAR.Commons.Unity.Logging", "CreateAR.Commons.Unity.Logging\CreateAR.Commons.Unity.Logging.csproj", "{4C32FD65-3115-47F5-A378-BE8880D71189}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enklu.Commons.Unity.Logging", "Enklu.Commons.Unity.Logging\Enklu.Commons.Unity.Logging.csproj", "{4C32FD65-3115-47F5-A378-BE8880D71189}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateAR.Commons.Unity.Logging.Test", "CreateAR.Commons.Unity.Logging.Test\CreateAR.Commons.Unity.Logging.Test.csproj", "{7030F2CD-52B9-4DDA-B52F-4BEECE174461}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enklu.Commons.Unity.Logging.Test", "Enklu.Commons.Unity.Logging.Test\Enklu.Commons.Unity.Logging.Test.csproj", "{7030F2CD-52B9-4DDA-B52F-4BEECE174461}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

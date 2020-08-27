@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CreateAR.Commons.Unity.Logging
+namespace Enklu.Commons.Unity.Logging
 {
     /// <summary>
     /// Terse logging interface for a Unity client.
@@ -148,19 +148,21 @@ namespace CreateAR.Commons.Unity.Logging
             object meta,
             params object[] replacements)
         {
+            var msgStr = message?.ToString() ?? "Null";
+            
             // TODO: only do this if there is a target active at this level
             if (replacements.Length > 0)
             {
-                message = string.Format(message.ToString(), replacements);
+                msgStr = string.Format(msgStr, replacements);
             }
 
             // history
-            _history.OnLog(level, caller, message.ToString(), meta);
+            _history.OnLog(level, caller, msgStr, meta);
 
             // call all ILogTargets
             for (int i = 0, len = _targets.Count; i < len; i++)
             {
-                _targets[i].OnLog(level, caller, message.ToString(), meta);
+                _targets[i].OnLog(level, caller, msgStr, meta);
             }
         }
     }

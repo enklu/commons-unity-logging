@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CreateAR.Commons.Unity.Logging
+namespace Enklu.Commons.Unity.Logging
 {
     /// <summary>
     /// Options for log dumps.

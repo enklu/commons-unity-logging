@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace CreateAR.Commons.Unity.Logging
+namespace Enklu.Commons.Unity.Logging
 {
     /// <summary>
     /// Provides a default implementation for formatting logs.

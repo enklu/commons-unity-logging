@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace CreateAR.Commons.Unity.Logging.Test
+namespace Enklu.Commons.Unity.Logging.Test
 {
     [Parallelizable(ParallelScope.None)]
     [TestFixture]
@@ -52,6 +52,26 @@ namespace CreateAR.Commons.Unity.Logging.Test
             Log.RemoveLogTarget(_target);
 
             Assert.AreEqual(0, Log.Targets.Length);
+        }
+
+        [Test]
+        public void NullLog()
+        {
+            Assert.DoesNotThrow(() => Log.Info(this, null));
+        }
+
+        [Test]
+        public void Replacements()
+        {
+            Log.AddLogTarget(_target);
+
+            var str = "Hello";
+            var num = "226";
+            var toReplace = "{0}, Subject {1}";
+            
+            Log.Info(this, toReplace, str, num);
+            
+            Assert.AreEqual(string.Format(toReplace, str, num), _target.Message);
         }
     }
 }
