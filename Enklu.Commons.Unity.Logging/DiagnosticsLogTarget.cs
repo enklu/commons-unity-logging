@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace CreateAR.Commons.Unity.Logging
+namespace Enklu.Commons.Unity.Logging
 {
     /// <summary>
     /// Log target for diagnostics.

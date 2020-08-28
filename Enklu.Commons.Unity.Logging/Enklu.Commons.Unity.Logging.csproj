@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net35</TargetFramework>
+    <AssemblyVersion>2020.8.0</AssemblyVersion>
+    <Version>0.7.3</Version>
+    <Description></Description>
+    <Copyright></Copyright>
+    <Authors></Authors>
+    <IncludeSymbols>True</IncludeSymbols>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <FileVersion>2020.8.0</FileVersion>
+    <IsPackable>false</IsPackable>
+    <PackageId />
+    <PackageVersion />
+    <Company>Enklu</Company>
+    <Product>Enklu.Commons.Unity.Logging</Product>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>True</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\Program Files\Unity\Hub\Editor\2019.2.0f1\Editor\Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\Program Files\Unity\Hub\Editor\2019.2.21f1\Editor\Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

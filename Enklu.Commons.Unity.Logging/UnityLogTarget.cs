@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CreateAR.Commons.Unity.Logging
+namespace Enklu.Commons.Unity.Logging
 {
     /// <summary>
     /// Targets Unity logging methods.

@@ -2,7 +2,7 @@
 using System.Text;
 using System.Threading;
 
-namespace CreateAR.Commons.Unity.Logging
+namespace Enklu.Commons.Unity.Logging
 {
     /// <summary>
     /// Keeps in memory history.
