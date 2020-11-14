@@ -73,5 +73,13 @@ namespace Enklu.Commons.Unity.Logging.Test
             
             Assert.AreEqual(string.Format(toReplace, str, num), _target.Message);
         }
+        
+        [Test]
+        public void Json()
+        {
+            var json = "{\"name\":{\"first\":\"thor\"}}";
+            
+            Assert.DoesNotThrow(() => Log.Info(this, json, new object[0]));
+        }
     }
 }

@@ -67,7 +67,15 @@ namespace Enklu.Commons.Unity.Logging
 
             if (TypeName && null != caller)
             {
-                log.AppendFormat("[{0}]", caller.GetType().FullName);
+                var callerType = caller.GetType();
+                if (callerType == typeof(string))
+                {
+                    log.AppendFormat("[{0}]", caller);
+                }
+                else
+                {
+                    log.AppendFormat("[{0}]", callerType.FullName);
+                }
             }
 
             if (ObjectToString && null != caller)
